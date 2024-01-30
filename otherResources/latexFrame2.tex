@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Copyright 2022 by Isac Pasianotto
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 	Variabili di tipo "color": 
+
+\definecolor{bluUnits100}{rgb}{0.16,0.22,0.36} 
+\definecolor{bluUnits80}{rgb}{0.22,0.3,0.51}
+\definecolor{bluUnits70}{rgb}{0.25,0.35,0.58}
+\definecolor{bluUnits50}{rgb}{0.41,0.51,0.74}
+\definecolor{bluUnits40}{rgb}{0.56,0.63,0.81}
+\definecolor{bluUnits25}{rgb}{0.78,0.82,0.9}
+\definecolor{bluUnits10}{rgb}{0.93,0.94,0.96}
+\definecolor{grey}{rgb}{0.3686, 0.5255, 0.6235} 
+
+%% Paleta Labex
+\definecolor{labexBlue100}{RGB}{32,30,80} %#201E50 
+\definecolor{labexBlue80}{RGB}{85,91,118} %#525b76
+\definecolor{labexBlue70}{RGB}{117,185,190} %#75B9BE
+\definecolor{labexBlue50}{RGB}{168,204,201} %#A8CCC9
+\definecolor{labexGreen100}{RGB}{0,156,0} %#009C00
+\definecolor{labexGreen25}{RGB}{179,214,168} %#B3D6C6
+\definecolor{labexGreen10}{RGB}{220,234,178} %#DCEAB2
+\definecolor{labexWhite10}{RGB}{241,250,238} %#F1FAEE
+\definecolor{grey}{rgb}{0.3686, 0.5255, 0.6235} 
+
+%%	Palette di colori 
+
+%\setbeamercolor{palette primary}{bg=bluUnits100,fg=white}
+%\setbeamercolor{palette secondary}{bg=bluUnits80,fg=bluUnits25}
+%\setbeamercolor{palette tertiary}{bg=bluUnits50,fg=bluUnits100}
+%\setbeamercolor{palette quaternary}{bg=bluUnits40,fg=white}
+%\setbeamercolor{palette light primary}{bg=bluUnits25,fg=bluUnits100}
+%\setbeamercolor{palette titleframe}{bg=bluUnits10, fg=bluUnits80}
+\setbeamercolor{palette primary}{bg=labexBlue100,fg=labexWhite10}
+\setbeamercolor{palette secondary}{bg=labexBlue80,fg=labexGreen25}
+\setbeamercolor{palette tertiary}{bg=labexBlue50,fg=labexBlue100}
+\setbeamercolor{palette quaternary}{bg=labexGreen25,fg=white}
+\setbeamercolor{palette light primary}{bg=labexGreen25,fg=labexGreen100}
+\setbeamercolor{palette titleframe}{bg=labexGreen10, fg=labexBlue80}
+
+
+
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%% Impostazioni generali slide  %%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%	Setta l'immagine da mettere come sfondo, riducendone l'opacità
+
+
+            \usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[height=0.915\textheight]{\LogoFiligranaPair}};}
+
+%%	Elenchi puntati, numerati, etc.
+
+\setbeamercolor{structure}{fg=labexBlue80}
+\setbeamertemplate{enumerate item}[circle]
+\setbeamertemplate{itemize subitem}[ball]
+% Valutare a secoda del contesto se sostituire con 
+% \setbeamertemplate{items}[circle]
+\setbeamercolor{alerted text}{fg=bluUnits50}
+
+%% 	Colore delle scritte nella presentazione
+
+\setbeamercolor{normal text}{fg=labexBlue100,bg=white}
+
+%% 	Settaggio della linea in alto (headline)
+
+\setbeamertemplate{headline}{
+	\vskip1pt
+	\leavevmode	
+	\hbox{
+		\begin{beamercolorbox}[wd=.99\paperwidth,ht=2.5ex,dp=1.125ex]{palette light primary}
+			\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+		\end{beamercolorbox}
+	}
+}
+
+%%	Settaggio riga in basso (footline) 
+ 
+\setbeamertemplate{footline}{
+       \leavevmode
+	   \hbox{
+           \begin{beamercolorbox}[wd=.2\textwidth,ht=2.6ex,dp=1ex,center]{palette tertiary}
+		    \usebeamerfont{author in head/foot}\insertshortauthor
+    	\end{beamercolorbox}
+	
+    	\begin{beamercolorbox}[wd=.27\textwidth,ht=2.6ex,dp=1ex,center]{palette quaternary}
+	   		\usebeamerfont{institute in head/foot}\insertshortinstitute
+	   	\end{beamercolorbox}
+	
+    	\begin{beamercolorbox}[wd=.40\textwidth,ht=2.6ex,dp=1ex,center]{palette tertiary}
+    		\usebeamerfont{title in head/foot}\insertshorttitle
+    	\end{beamercolorbox}
+
+    	\begin{beamercolorbox}[wd=.1\textwidth,ht=2.6ex,dp=1ex,center]{palette light primary}
+	   		\insertframenumber{}/\inserttotalframenumber
+	    \end{beamercolorbox}
+    }
+    \vskip2pt
+
+}
+
+%%	Settaggio tittoli delle slide  
+\setbeamersize{text margin left=0.8em, text margin right=0.8em}
+\setbeamertemplate{frametitle}{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.75ex,dp=1ex,left]{palette titleframe}
+		\qquad \textbf{\insertframetitle}
+	\end{beamercolorbox}
+}
+

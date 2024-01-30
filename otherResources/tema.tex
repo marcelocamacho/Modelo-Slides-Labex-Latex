@@ -1,0 +1,161 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Copyright 2022 by Isac Pasianotto
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Paleta de cores
+\definecolor{labexBlue120}{RGB}{35,44,51} %#232C33 GunMetal
+\definecolor{labexBlue110}{RGB}{1,22,56} %#011636 Oxford Blue
+\definecolor{labexBlue100}{RGB}{32,30,80} %#201E50
+\definecolor{labexBlue90}{RGB}{54,65,86} %#364156 Charcoal
+\definecolor{labexBlue80}{RGB}{85,91,118} %#525b76
+\definecolor{labexBlue75}{RGB}{160,193,209} %#A0C1D1 Powder Blue
+\definecolor{labexBlue70}{RGB}{117,185,190} %#75B9BE
+\definecolor{labexBlue50}{RGB}{168,204,201} %#A8CCC9
+\definecolor{labexBlue40}{RGB}{218,223,247} %#DADFF7 Lavender
+
+\definecolor{labexGreen110}{RGB}{29,103,17} %#1D6711 Office Green
+\definecolor{labexGreen100}{RGB}{0,156,0} %#009C00
+\definecolor{labexGreen90}{RGB}{46,231,37} %#2EE725 SGBUS green
+\definecolor{labexGreen25}{RGB}{179,214,168} %#B3D6C6
+\definecolor{labexGreen10}{RGB}{220,234,178} %#DCEAB2
+
+\definecolor{labexWhite10}{RGB}{241,250,238} %#F1FAEE
+\definecolor{grey}{rgb}{0.3686, 0.5255, 0.6235}
+\definecolor{silver}{RGB}{205,205,205} %#
+\definecolor{goldenrod}{HTML}{DAA520}
+
+%%	Paleta de Composicoes
+\setbeamercolor{palette primary}{bg=labexBlue100,fg=labexWhite10}
+\setbeamercolor{palette secondary}{bg=labexBlue80,fg=labexGreen90}
+\setbeamercolor{palette tertiary}{bg=labexGreen110,fg=labexWhite10}
+\setbeamercolor{palette quaternary}{bg=labexGreen25,fg=white}
+\setbeamercolor{palette light primary}{bg=labexGreen25,fg=labexGreen110}
+\setbeamercolor{palette titleframe}{bg=labexGreen10, fg=labexBlue120}
+
+%% Definicao de margem
+\setbeamersize{text margin left=0.8em, text margin right=0.8em}
+            
+%% Definicoes de itens e textos
+\setbeamercolor{structure}{fg=labexBlue110}%{fg=labexBlue80}
+\setbeamertemplate{enumerate item}[circle]
+\setbeamertemplate{itemize subitem}[ball]
+\setbeamercolor{alerted text}{fg=labexBlue50}
+\setbeamercolor{normal text}{fg=labexBlue110,bg=white}
+\usefonttheme{professionalfonts}
+
+\changefontsizes{10pt}
+
+% Espaço entre o titulo e a tabela
+\captionsetup{skip=0pt,font=small,belowskip=0pt,justification=centering}
+
+%% 	headline navbar
+\setbeamertemplate{headline}{
+	\vskip1pt
+	\leavevmode	
+	{
+  	  \begin{beamercolorbox}[wd=\paperwidth,ht=2.8ex,dp=1.2ex]{palette tertiary}
+			\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+		\end{beamercolorbox}
+	}
+ }
+
+%% modelo capa
+\def\setTitlestyleDissertation{
+\vskip-30pt
+	\defbeamertemplate*{title page}{customized}[1][]{
+            
+            \begin{tikzpicture}[remember picture, overlay,node distance=0,outer sep=0,inner sep=0]
+                \node[yscale=1.8,opacity=0.3,inner sep=0pt] at (current page.center){
+                    \includegraphics[width=\paperwidth,height=\paperheight]{\LogoFiligranaPair}
+                    \hfill
+                };
+                \hfill
+            \end{tikzpicture}
+            \begin{figure}%
+                \centering
+                \subfloat{{\includegraphics[width=3.5cm,height=2cm]{\LogoDipartimento} }}%
+                \hfill
+                \subfloat{{\includegraphics[width=5.5cm,height=2cm]{\LogoUniversita} }}%
+                \hskip-10pt
+            \end{figure}
+            \smallskip
+		\begin{center}		
+			\usebeamerfont{title}\textbf{\inserttitle}\par
+			\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+			\medskip				
+			\begin{multicols}{2}[
+                    \candidatoLabel \\
+					\usebeamerfont{author}{\insertauthor}
+                ]
+				\begin{tabular}{c}
+					\usebeamerfont{normal text}{\relatoreLabel} \\
+					\usebeamerfont{author}{\relatore}
+				\end{tabular}					
+				\columnbreak
+				\begin{tabular}{c}
+                    \usebeamerfont{normal text}{\correlatoreLabel} \\
+					\usebeamerfont{author}{\correlatore}
+				\end{tabular}
+			\end{multicols}
+			\par
+			%\bigskip  	% --> Caso use apenas orientador
+			\smallskip 	% --> Caso use orientador + coorientador
+            \par
+			%\bigskip	% --> Caso use apenas orientador
+			\smallskip	% --> Caso use orientador + coorientador
+			\usebeamerfont{date}\insertdate\par
+			%\bigskip	% --> Caso use apenas orientador
+			%\smallskip	% --> Caso use orientador + coorientador
+		\end{center}
+	}
+}
+
+
+%% footline  
+\setbeamertemplate{footline}{
+       \leavevmode
+	   \hbox{
+           \begin{beamercolorbox}[wd=.2\textwidth,ht=2.6ex,dp=1ex,center]{palette tertiary}
+		    \usebeamerfont{author in head/foot}\insertshortauthor
+    	\end{beamercolorbox}
+	
+    	\begin{beamercolorbox}[wd=.67\textwidth,ht=2.6ex,dp=1ex,center]{palette tertiary}
+    		\usebeamerfont{title in head/foot}\insertshorttitle
+    	\end{beamercolorbox}
+
+    	\begin{beamercolorbox}[wd=.1\textwidth,ht=2.6ex,dp=1ex,center]{palette light primary}
+	   		\insertframenumber{}/\inserttotalframenumber
+	    \end{beamercolorbox}
+    }
+%    \vskip2pt
+}
+%% Sessões/Titulos
+\setbeamertemplate{frametitle}{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.75ex,dp=1ex,left]{palette titleframe}
+		\qquad \textbf{\insertframetitle}
+	\end{beamercolorbox}
+    \justifying
+}
+
+%% Background transparente
+\usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[height=0.915\textheight]{\LogoFiligranaOdd}};}
+
+%\usebackgroundtemplate{\tikz\node[opacity=0.1]{\includegraphics[height=0.915\textheight]{\LogoFiligranaPair}};}
+
+%% Bullet
+\newlength{\tmpShadow}
+\newcommand{\ourShadow}[2]{%
+    \settowidth{\tmpShadow}{#1}
+    \addtolength{\tmpShadow}{.1em}
+    \raisebox{-0.25ex}{\textcolor{gray!70}{#1}}%
+    \kern-\tmpShadow%
+    {\color{#2}#1}%
+}
+
